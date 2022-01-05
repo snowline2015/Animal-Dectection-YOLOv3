@@ -15,7 +15,6 @@ def detect_animal(image, conf=0.5, nms=0.4):
 
     layer_names = net.getLayerNames()
     layer_names = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
-
     height, width = image.shape[:2]
 
     blob = cv2.dnn.blobFromImage(image, 1 / 255.0, (416, 416), swapRB=True, crop=False)
@@ -23,9 +22,7 @@ def detect_animal(image, conf=0.5, nms=0.4):
     outputs = net.forward(layer_names)
 
     boxes, confidences, classIDs = get_information(outputs, conf, width, height)
-
     idxs = cv2.dnn.NMSBoxes(boxes, confidences, conf, nms)
-
     img, txt = draw_bounding(image, boxes, confidences, classIDs, idxs, classes)
 
     return img, txt
@@ -36,7 +33,7 @@ def app_main():
 
     st.title("Animal Detection")
     st.write("Made with love by: Ngo Huy Hoang - 19127406 & Trieu Nguyen Minh Huy - 19127424 & Truong The Phu - 19127509")
-    st.write("Animal list: Buffalo, Cat, Elephant, Rhino, Zebra. Any animal out of this list will cause unexpected prediction")
+    st.write("Animal accepted: Buffalo, Cat, Elephant, Rhino, Zebra. Any animal out of this list will cause unpredictable result")
 
     img = st.file_uploader("Upload Image", type=['png', 'jpg', 'jpeg'])
 
