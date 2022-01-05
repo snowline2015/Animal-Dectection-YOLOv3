@@ -29,6 +29,7 @@ def get_information(outputs, confidence, width, height):
 
 
 def draw_bounding(image, boxes, confidences, classIDs, idxs, labels):
+    text = "unknown"
     if len(idxs) > 0:
         for i in idxs.flatten():
             x, y = boxes[i][0], boxes[i][1]
