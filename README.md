@@ -1,5 +1,5 @@
-# Final-IntroML
-# Animal Detection App
+# Introduction of Machine Learning: Final Project
+# Animal Detection Website
 Requirement: Install Python 3.9 (version used for development is 3.9.7)
 
 How to run:
